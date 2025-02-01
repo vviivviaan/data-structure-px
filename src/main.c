@@ -13,7 +13,7 @@ int main() {
     do {               
 
         printf("HealthSys\n");
-        printf("1 - Consultar pacientes\n");
+        printf("1 - Consultar paciente\n");
         printf("2 - Atualizar paciente\n");
         printf("3 - Remover paciente\n");
         printf("4 - Inserir paciente\n");
