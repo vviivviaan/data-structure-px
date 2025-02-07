@@ -54,5 +54,6 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
+
 # Phony targets: targets that are not files
 .PHONY: all compile run clean
