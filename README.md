@@ -1,5 +1,3 @@
-//deverá explicar o passo-a-passo para executar o programa, os principais TADs e as principais decisões de implementação.//
-
 # HealthSys
 
 O trabalho apresentado em linguagem C visa simular um sistema simplificado de gerenciamento de dados de pacientes de uma clínica, que consiste na manipulação das infomações dos pacientes registrados.
@@ -12,6 +10,7 @@ Representação do sistema de gerenciamento de dados dos pacientes.
 
 ### Detalhamento da simulação
 A lógica da simulação poderá ser encontrada na arquivo main.c.
+   
     I. Inicialização do sistema
         Aparecerão 6 opções para usuário, sendo:
             1 - Consultar paciente
