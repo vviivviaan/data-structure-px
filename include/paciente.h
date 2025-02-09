@@ -2,6 +2,7 @@
 #define PACIENTE_H
 #include <stdio.h>
 
+/* Definição da estrutura para manipular no arquivo 'paciente.c'. */
 typedef struct paciente Paciente;
 typedef struct bdpaciente BDPaciente;
 
@@ -44,11 +45,13 @@ void carregar_pacientes(BDPaciente *bd, FILE *file);
 /* Função para salvar os pacientes no arquivo CSV. */
 void salvar_pacientes(BDPaciente *bd, FILE *file);
 
-/* Função para consultar paciente baseado no nome ou CPF do paciente*/
+/* Função para consultar paciente baseado no nome ou CPF do paciente. */
 void consultar_paciente(BDPaciente *bd, const char *cpf);
 
+/* Função para atualizar dados do paciente. */
 void atualizar_paciente(BDPaciente *bd, const char *cpf);
 
+/* Função para remover paciente. */
 void remover_pacientes(BDPaciente *bd);
 
 #endif
