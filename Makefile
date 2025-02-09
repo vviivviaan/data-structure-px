@@ -1,59 +1,59 @@
 
-# Compiler
+# Compilador
 CC = gcc
 
-# Compiler flags
+# Flags do compilador
 CFLAGS = -Wall
 
-# Libraries
+# Bibliotecas
 LIBS = -lm # math library
 
-# Source directory
+# Diretório dos arquivos fonte
 SRC_DIR = src
 
-# Header directory
+# Diretório dos arquivos de cabeçalho
 INC_DIR = include
 
-# Executable name
+# Nome do executável
 TARGET = main
 
-# Main file
+# Arquivo principal
 MAIN = main.c
 
-# Source files: all .c files in the source directory plus the main file
+# Arquivos-fonte: todos os arquivos .c no diretório de código-fonte mais o arquivo principal
 SRCS = $(wildcard $(SRC_DIR)/*.c) $(MAIN)
 
-# Object files: replace .c with .o
+# Arquivos-objeto: substitui .c por .o
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 
-# Explicit compile target
-# By default, the first target (this) is the one that will be executed if no target is specified
+# Alvo explícito de compilação
+# Por padrão, o primeiro alvo (este) será executado se nenhum outro for especificado
 compile: $(TARGET)
 
-# Run the program: depends on the target program
+# Executar o programa: depende do programa alvo
 run: $(TARGET)
 	./$(TARGET)
 
-# Compile and run the program
+# Compilar e executar o programa
 all: compile run
 
-# Clean up: remove object files and the target program
+# Limpeza: remove os arquivos-objeto e o executável
 clean:
 	rm -f $(OBJS) $(TARGET)
 
-# Compile each source file into an object file: <file>.o depends on <file>.c
+# Compilar cada arquivo-fonte em um arquivo-objeto: <arquivo>.o depende de <arquivo>.c
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
-# Compile source files in the source directory into object files: <source_dir>/<file>.o depends on <source_dir>/<file>.c
-# This rule has higher priority than the previous one because it is more specific
+# Compilar arquivos-fonte no diretório de código-fonte para arquivos-objeto: <src_dir>/<arquivo>.o depende de <src_dir>/<arquivo>.c
+# Esta regra tem prioridade maior do que a anterior porque é mais específica
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
-# Rule to link object files and create the executable (target): depends on all object files
+# Regra para ligar os arquivos-objeto e criar o executável (alvo): depende de todos os arquivos-objeto
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
 
-# Phony targets: targets that are not files
+# Alvos fictícios: alvos que não são arquivos
 .PHONY: all compile run clean
