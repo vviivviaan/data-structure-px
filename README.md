@@ -9,8 +9,8 @@ Representação do sistema de gerenciamento de dados dos pacientes.
 ![Image](https://github.com/user-attachments/assets/d51968f4-07ec-4113-9f9f-63471afb4144)
 
 ### Detalhamento da simulação
-A lógica da simulação poderá ser encontrada na arquivo main.c.
-   
+A lógica da simulação poderá ser encontrada na arquivo [main.c](main.c).
+  
     I. Inicialização do sistema
         Aparecerão 6 opções para usuário, sendo:
             1 - Consultar paciente
@@ -38,7 +38,6 @@ A lógica da simulação poderá ser encontrada na arquivo main.c.
 
     VII. Sair
         E a última opção do painel é de sair, selecionando a opção "Q" o usuário finaliza a sessão no sistema da clínica.
-
 
 ## Sistema de gerenciamento
 
@@ -81,12 +80,12 @@ Manipulação realacionada aos pacientes, que contém:
 
 |Variável| Tipo | Finalidade |
 |-|-|-|
-|id|Inteiro |Identificador do paciente.|
-|nome|Char|Nome do paciente.|
-|cpf|Char|CPF do paciente.|
-|idade|Inteiro|Idade do paciente.|
-|data_cadastro|Char|Data do cadastro.|
-|paciente *prox|Struct|Ponteiro para o próximo paciente.|
+|[id](src/paciente.c?#L10)|Inteiro |Identificador do paciente.|
+|[nome](src/paciente.c?#L11)|Char|Nome do paciente.|
+|[cpf](src/paciente.c?#L12)|Char|CPF do paciente.|
+|[idade](src/paciente.c?#L13)|Inteiro|Idade do paciente.|
+|[data_cadastro](src/paciente.c?#L14)|Char|Data do cadastro.|
+|[paciente *prox](src/paciente.c?#L15)|Struct|Ponteiro para o próximo paciente.|
 
 
 **BDPaciente:**
@@ -95,7 +94,7 @@ Manipulação realacionada aos pacientes, que contém:
 
 |Variável| Tipo | Finalidade |
 |- |-|-|
-|inicio|Struct |Ponteiro para o primeiro paciente.|
+|[inicio](src/paciente.c?#L20)|Struct |Ponteiro para o primeiro paciente.|
 
 ## Funções 
 
