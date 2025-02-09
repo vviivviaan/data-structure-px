@@ -4,7 +4,6 @@
 #include <string.h>        
 #include <ctype.h>          /* Biblioteca para manipular caracteres. */
 
-
 /* Definição da estrutura do paciente. */
 struct paciente {
     int id;
@@ -33,7 +32,6 @@ BDPaciente *montagem_bd(){
     bd->inicio = NULL;     /* Começar o ponteiro inicial com valor nulo. */
     return bd;
 }
-
 /* Função para criar paciente. */
 Paciente *criar_paciente(int id, const char *nome, const char *cpf, int idade, const char *data_cadastro){
     
@@ -53,7 +51,6 @@ Paciente *criar_paciente(int id, const char *nome, const char *cpf, int idade, c
 
     return novo_paciente;
 }
-
 /* Função para digitar as informações do paciente. */
 Paciente *digitar_paciente(BDPaciente *bd){
     int id, idade, validar;
@@ -71,7 +68,6 @@ Paciente *digitar_paciente(BDPaciente *bd){
 
         printf("Digite o CPF do paciente (apenas números): ");
         scanf("%s", cpf);
-
         /* Chama a função para validar o CPF. */
         while((validar_cpf(cpf) != 1)){
             printf("Digite o CPF novamente: ");
@@ -100,7 +96,6 @@ Paciente *digitar_paciente(BDPaciente *bd){
         printf("Idade invalida! Digite novamente: ");
         scanf("%d", &idade);
     }
-
     printf("Digite a data de cadastro do paciente (somente números, seguindo a ordem AAAA/MM/DD)");
     scanf("%s", data_cadastro);
 
@@ -109,14 +104,10 @@ Paciente *digitar_paciente(BDPaciente *bd){
         printf("Digite a data de cadastro novamente: ");
         scanf("%s", data_cadastro);
     }
-
     return criar_paciente(id, nome, cpf, idade, data_cadastro);
 }
-
 int verificar_informacao(BDPaciente *bd, int id, const char *cpf) {
-
     Paciente *aux = bd->inicio;
-
     while(aux != NULL) {
 
         /* Se tiver o mesmo ID mostra mensagem de erro e retorna 1. */
@@ -132,10 +123,8 @@ int verificar_informacao(BDPaciente *bd, int id, const char *cpf) {
         }
         aux = aux->prox;
     }
-
     return 1;                                                      /* Retorna 1 caso esteja tudo correto. */
 }
-
 /* Função para inserir o paciente no banco de dados. */
 void inserir_paciente(BDPaciente *bd, Paciente *novo){
 
@@ -152,9 +141,7 @@ void inserir_paciente(BDPaciente *bd, Paciente *novo){
         }
         aux->prox = novo;
     }
-
 } 
-
 /* Função para validar o CPF. */
 int validar_cpf(char *cpf){
 
@@ -172,8 +159,6 @@ int validar_cpf(char *cpf){
 
     return 1;                                                   /* Retorna 1 caso passe das condições (ou seja, CPF válido). */ 
 }
-
-
 /* Função para validar a data de cadastro. */
 int validar_data(char *data_cadastro){
 
@@ -181,10 +166,8 @@ int validar_data(char *data_cadastro){
         printf("Data de cadastro inválida!");
         return 0;
     }
-
     return 1;                                                   /* Retorna 1 caso passe das condições (ou seja, data válida). */
 }
-
 /* Função para formatar cpf quando for imprimir. */
 void formatar_cpf(char *cpf_formatado, const char *cpf) {
 
@@ -196,10 +179,8 @@ void formatar_data(char *data_formatada, const char *data) {
 
     sprintf(data_formatada, "%.4s-%.2s-%.2s", data, data + 4, data + 6);
 }
-
 /* Função para formatar o nome em letra maiuscula. */
 void formatar_nome(char *nome){
-
     /* Se o nome não for vazio, ele pega a primeira letra e transforma em maiuscula. */
       if (nome[0] != '\0') {
         nome[0] = toupper(nome[0]);
@@ -220,7 +201,6 @@ void formatar_nome(char *nome){
         }
     }
 }
-
 /* Função para imprimir dados dos pacientes. */
 void imprimir_pacientes(BDPaciente *bd) {
 
@@ -228,7 +208,6 @@ void imprimir_pacientes(BDPaciente *bd) {
         printf("Não há pacientes cadastrados no sistema.\n");
         return;
     }
-
     /* Variável para percorrer a lista sem modificar o valorr original. */
     Paciente *aux = bd->inicio;
     printf("\nLista de Pacientes:\n");
@@ -251,8 +230,6 @@ void imprimir_pacientes(BDPaciente *bd) {
         aux = aux->prox;
     }
 }
-
-
 /* Função que ler da lista encadeada e salva no arquivo. */
 void carregar_pacientes(BDPaciente *bd, FILE *file) {
 
@@ -276,7 +253,6 @@ void carregar_pacientes(BDPaciente *bd, FILE *file) {
         }
     }
 }
-
 /* Função para salvar os pacientes no arquivo CSV. */
 void salvar_pacientes(BDPaciente *bd, FILE *file) {
 
@@ -289,7 +265,7 @@ void salvar_pacientes(BDPaciente *bd, FILE *file) {
     }
 }
 
-/* Função para consultar paciente baseado no nome ou CPF do paciente. */
+/* Função para consultar paciente baseado no nome ou CPF do paciente*/
 void consultar_paciente(BDPaciente *bd, const char *cpf){
 
     if(bd == NULL || bd->inicio == NULL) {
@@ -308,7 +284,6 @@ void consultar_paciente(BDPaciente *bd, const char *cpf){
     scanf("%d", &opcao);
     getchar();                          
     
-
     if (opcao == 1) {
         printf("Digite o nome do paciente: ");
         fgets(busca, sizeof(busca), stdin);
@@ -357,6 +332,7 @@ void consultar_paciente(BDPaciente *bd, const char *cpf){
 }
 
 /* Função para atualizar paciente. */
+
 void atualizar_paciente(BDPaciente *bd, const char *cpf){
 
     if(bd == NULL || bd->inicio == NULL) {
@@ -373,8 +349,7 @@ void atualizar_paciente(BDPaciente *bd, const char *cpf){
     printf("3 - Retornar ao menu principal\n");
     printf("Opção: ");
     scanf("%d", &opcao);
-    getchar();                          
-    
+    getchar();                           
 
     if (opcao == 1) {
         printf("Digite o nome do paciente: ");
@@ -415,8 +390,7 @@ void atualizar_paciente(BDPaciente *bd, const char *cpf){
                    aux->id, cpf_formatado, aux->nome, aux->idade, data_formatada);
             encontrado = 1;
 
-
-        /*Atualizar os dados do paciente. */
+        /* Atualizar os dados do paciente. */
             printf("Digite os novos dados do paciente: \n");
             printf("Nome: ");
             fgets(aux->nome, sizeof(aux->nome), stdin);
@@ -434,22 +408,16 @@ void atualizar_paciente(BDPaciente *bd, const char *cpf){
             scanf("%s", aux->data_cadastro);
             getchar();
 
-
             printf("Dados atualizados!");
             break;
-
         }
         aux = aux->prox;
     }
-
     if (encontrado != 1) {
         printf("Paciente não encontrado!\n");
     }
-
-
 }
-
-/*função para remover paciente*/
+/* Função para remover paciente. */
 void remover_pacientes(BDPaciente *bd) {
 
     if (bd == NULL || bd->inicio == NULL) {
@@ -457,7 +425,7 @@ void remover_pacientes(BDPaciente *bd) {
         return;
     }
 
-    /*imprimir lista de pacientes*/
+    /* Imprimir lista de pacientes. */
     imprimir_pacientes(bd);
 
     int id;
@@ -465,10 +433,12 @@ void remover_pacientes(BDPaciente *bd) {
     scanf("%d", &id);
     getchar();
 
+    /* Varriável auxiliar para ajudar percorrer. */
     Paciente *aux = bd->inicio;
     Paciente *anterior = NULL;
     int encontrado = 0;
 
+    /* Percorre até o final da lista. */
     while (aux != NULL) {
         if (aux->id == id) {
             if (anterior == NULL) {
@@ -476,7 +446,8 @@ void remover_pacientes(BDPaciente *bd) {
             } else {
                 anterior->prox = aux->prox;
             }
-            
+
+            /* Remove paciente (free). */
             free(aux);
             printf("Paciente removido!\n");
             encontrado = 1;
