@@ -101,7 +101,7 @@ Manipulação realacionada aos pacientes, que contém:
 
 |Função|Recebe|Execução|Retorna|
 | ------------- |:-------------:|-|-|
-|[montagem_bd(...)](src/paciente.c?L24)||Aloca e define banco de dados pacientes para o gerenciamento da lista.|BDPaciente*|
+|[montagem_bd(...)](src/paciente.c?#L24)||Aloca e define banco de dados pacientes para o gerenciamento da lista.|BDPaciente*|
 |criar_paciente(...)|int id, const char *nome, const char *cpf, int idade, const char *data_cadastro|Aloca e inicializa novo paciente na memória.|Paciente*|
 |digitar_paciente(...)|BDPaciente *bd|Digitar as informações do paciente para a criação.|Paciente*| 
 |verificar_informacao(...)|BDPaciente *bd, int id, const char *cpf|Verifica se o ID ou o CPF já existe.|Inteiro|
